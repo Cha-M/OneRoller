@@ -98,15 +98,13 @@ void showResults(int n = 0)
 
 void roll()
 {
-    cout << "Dice to roll: ";
     cin >> pool;
 
     while (!pool || !cin)
     {
-        cout << "Input an integer >0." << endl;// this currently displays when not
         cin.clear();
         cin.ignore(STREAM_LIMIT, '\n');
-        cout << "Dice to roll: ";
+        cout << "Input an integer >0." << endl << endl << "Dice to roll: ";
         cin >> pool;
     }
 
@@ -117,12 +115,13 @@ void roll()
         pool = 1000;
     }
 
+
     recSetResults();
     cout << "Rolled " << pool << "d: ";
     showResults();
     poolSort();
     compareAll();
-    cin.clear();
+
     cout << endl;
     roll();
 
@@ -132,7 +131,7 @@ int main()
 {
     srand(time(NULL));
     cout << "OneRoller" << endl;
-    cout << "A dice roller for One Roll Engine games." << endl << endl;
+    cout << "A dice roller for One Roll Engine games." << endl << endl << "Dice to roll: ";
     roll();
     return 0;
 }
